@@ -38,6 +38,7 @@ def create_optimizer(
     opt_lower = opt.lower()
     opt_args = dict(weight_decay=weight_decay, **kwargs)
     opt_args.setdefault('lr', lr)
+    
 
     # basic SGD & related
     if opt_lower == 'sgd':

@@ -116,7 +116,7 @@ class Trainer(object):
             if self.optimizer.using_step_function:
                 for step, data_train in enumerate(self.train_queue):
                     
-                    if self.config.save_arch_weights is True:
+                    if hasattr(self.config, 'save_arch_weights') and self.config.save_arch_weights is True:
                         if len(arch_weights) == 0:
                             for edge_weights in self.optimizer.architectural_weights:
                                 arch_weights.append(torch.unsqueeze(edge_weights.detach(), dim=0))
